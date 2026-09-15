@@ -1,0 +1,33 @@
+// Button Component Styles
+@use '../../styles/core/_variables.scss' as *;
+
+.btn {
+    background: $primary-gradient;
+    color: $white;
+    border: none;
+    border-radius: $border-radius-md;
+    padding: $spacing-sm $spacing-xl;
+    font-size: $font-size-base;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform $transition-base, box-shadow $transition-base;
+    
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: $shadow-button;
+    }
+    
+    &:active {
+        transform: translateY(0);
+    }
+    
+    &:focus {
+        outline: 2px solid $primary-color;
+        outline-offset: 2px;
+    }
+    
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+}

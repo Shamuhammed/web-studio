@@ -1,0 +1,20 @@
+// Message Component Styles
+@use '../../styles/core/_variables.scss' as *;
+
+.message {
+    color: $success-color;
+    font-weight: bold;
+    margin-top: $spacing-md;
+    animation: fadeIn $transition-base ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
