@@ -1,8 +1,0 @@
-// Main SCSS file for Web Studio
-// Import core styles
-@use './core/_variables.scss' as *;
-@use './core/_base.scss';
-@use './core/_layout.scss';
-@use './core/_typography.scss';
-
-// Component styles are imported directly in their component files

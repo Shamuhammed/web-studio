@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --color-brand: #667eea;
+  --color-brand-dark: #5a67d8;
+  --color-brand-deep: #764ba2;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}

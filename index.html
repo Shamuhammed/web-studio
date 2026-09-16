@@ -1,14 +1,767 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Studio</title>
+    <meta name="description" content="Разрабатываем коммерческие сайты на WordPress в Минске и Беларуси. Core Web Vitals 90+, SEO Inside, регистрация в БелГИЭ, локальный хостинг. Сроки 7–21 день. Гарантии 12 месяцев.">
+    <meta name="keywords" content="разработка сайтов на WordPress Минск, создание сайтов Беларусь, веб-студия Минск, SEO продвижение сайтов, быстрые сайты, регистрация в БелГИЭ, локальный хостинг, интернет-магазин WordPress, корпоративный сайт, лендинг пейдж">
+    <title>Разработка сайтов на WordPress в Беларуси | Быстрые сайты с SEO под ключ — Web Studio</title>
 </head>
-<body>
+<body class="bg-white font-sans text-slate-800 antialiased">
     <div id="app">
-        <h1>Welcome to Web Studio</h1>
-        <p>This is a basic HTML/SCSS/JS setup with Vite</p>
+        <header class="sticky top-0 z-50 border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur">
+            <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
+                <a href="#" class="text-xl font-bold text-brand">Web Studio</a>
+                <button
+                    id="menu-toggle"
+                    type="button"
+                    class="rounded-md p-2 text-slate-700 hover:bg-slate-100 md:hidden"
+                    aria-expanded="false"
+                    aria-controls="site-nav"
+                >
+                    Меню
+                </button>
+                <nav id="site-nav" class="absolute left-0 right-0 top-full hidden border-b border-slate-200 bg-white md:static md:block md:border-0">
+                    <ul class="flex flex-col gap-1 px-4 py-3 md:flex-row md:items-center md:gap-6 md:p-0">
+                        <li><a class="block rounded-md px-2 py-2 font-medium hover:text-brand" href="#services">Услуги</a></li>
+                        <li><a class="block rounded-md px-2 py-2 font-medium hover:text-brand" href="#calculator">Калькулятор</a></li>
+                        <li><a class="block rounded-md px-2 py-2 font-medium hover:text-brand" href="#calculator-guide">Подбор</a></li>
+                        <li><a class="block rounded-md px-2 py-2 font-medium hover:text-brand" href="#cases">Кейсы</a></li>
+                        <li><a class="block rounded-md px-2 py-2 font-medium hover:text-brand" href="#about">О нас</a></li>
+                        <li><a class="block rounded-md px-2 py-2 font-medium hover:text-brand" href="#contact">Контакты</a></li>
+                    </ul>
+                </nav>
+                <div class="hidden items-center gap-4 lg:flex">
+                    <a class="text-sm text-slate-600 hover:text-brand" href="#">Telegram</a>
+                    <a class="text-sm text-slate-600 hover:text-brand" href="#">Viber</a>
+                    <a class="text-sm text-slate-600 hover:text-brand" href="#">WhatsApp</a>
+                    <a class="font-bold" href="tel:+375256873386">+375256873386</a>
+                    <a class="rounded-lg bg-brand px-4 py-2 font-semibold text-white hover:bg-brand-dark" href="#contact">Обсудить проект</a>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section id="hero" class="bg-gradient-to-br from-brand to-brand-deep text-white">
+                <div class="mx-auto max-w-6xl px-4 py-20 md:py-28">
+                    <div class="max-w-3xl">
+                        <h1 class="mb-5 text-3xl font-bold leading-tight md:text-5xl">Разрабатываем быстрые сайты на WordPress с готовой SEO-структурой</h1>
+                        <p class="mb-8 text-lg text-white/90">Коммерческие сайты с Core Web Vitals 90+, встроенным SEO и настройкой лидогенерации за 14–21 день. Полное соответствие требованиям РБ.</p>
+                        <div class="mb-8 flex flex-wrap gap-3">
+                            <a href="#contact" class="rounded-lg bg-white px-6 py-3 font-semibold text-brand hover:bg-slate-100">Получить консультацию</a>
+                            <a href="#calculator" class="rounded-lg border border-white/40 px-6 py-3 font-semibold text-white hover:bg-white/10">Рассчитать стоимость</a>
+                        </div>
+                        <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/80">
+                            <span>Официальный договор и гарантии</span>
+                            <span>Работаем с ИП и юрлицами</span>
+                            <span>Работаем по всей Беларуси</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-slate-50 py-16 md:py-20">
+                <div class="mx-auto max-w-6xl px-4">
+                    <h2 class="mb-10 text-center text-3xl font-bold text-slate-900 md:text-4xl">Для кого наши сайты</h2>
+                    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                        <article class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+                            <h3 class="mb-2 text-lg font-semibold text-slate-900">Запускаете бизнес?</h3>
+                            <p class="text-slate-600">Создадим сайт с нуля</p>
+                        </article>
+                        <article class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+                            <h3 class="mb-2 text-lg font-semibold text-slate-900">Нужен сайт для услуг?</h3>
+                            <p class="text-slate-600">Покажем, чем вы полезны клиенту</p>
+                        </article>
+                        <article class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+                            <h3 class="mb-2 text-lg font-semibold text-slate-900">Запускаете рекламу?</h3>
+                            <p class="text-slate-600">Подготовим сайт под рекламный трафик</p>
+                        </article>
+                        <article class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+                            <h3 class="mb-2 text-lg font-semibold text-slate-900">Сайт устарел?</h3>
+                            <p class="text-slate-600">Обновим дизайн и структуру</p>
+                        </article>
+                        <article class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+                            <h3 class="mb-2 text-lg font-semibold text-slate-900">Сайт работает плохо?</h3>
+                            <p class="text-slate-600">Найдём и исправим проблемы</p>
+                        </article>
+                        <article class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+                            <h3 class="mb-2 text-lg font-semibold text-slate-900">Хотите управлять сайтом сами?</h3>
+                            <p class="text-slate-600">Разработаем на WordPress</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="why-choose-us" class="scroll-mt-20 py-16 md:py-20">
+                <div class="mx-auto max-w-6xl px-4">
+                    <h2 class="mb-10 text-center text-3xl font-bold text-slate-900 md:text-4xl">Что получит ваш бизнес</h2>
+                    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                        <article class="rounded-xl border border-slate-200 p-6 shadow-sm">
+                            <h3 class="mb-4 text-xl font-bold text-slate-900">Скорость и производительность</h3>
+                            <ul class="space-y-2 text-slate-600">
+                                <li>Core Web Vitals 90+ — зеленая зона Google PageSpeed</li>
+                                <li>Загрузка страниц &lt; 1.5 секунды</li>
+                                <li>Чистый код без тяжелых конструкторов (Elementor, Divi)</li>
+                                <li>Оптимизация для мобильных устройств</li>
+                            </ul>
+                        </article>
+                        <article class="rounded-xl border border-slate-200 p-6 shadow-sm">
+                            <h3 class="mb-4 text-xl font-bold text-slate-900">SEO Inside — готовность к продвижению</h3>
+                            <ul class="space-y-2 text-slate-600">
+                                <li>Семантическая структура заложена на этапе разработки</li>
+                                <li>Микроразметка Schema.org (Organization, LocalBusiness, Service)</li>
+                                <li>Правильные мета-теги, OpenGraph, ЧПУ</li>
+                                <li>Техническая SEO-оптимизация (robots.txt, sitemap.xml)</li>
+                            </ul>
+                        </article>
+                        <article class="rounded-xl border border-slate-200 p-6 shadow-sm">
+                            <h3 class="mb-4 text-xl font-bold text-slate-900">Полное соответствие требованиям РБ</h3>
+                            <ul class="space-y-2 text-slate-600">
+                                <li>Регистрация сайта в БелГИЭ под ключ</li>
+                                <li>Размещение на локальном хостинге (согласно Указу №60)</li>
+                                <li>Интеграция с белорусскими платежными системами (ЕРИП, bePaid, WebPay)</li>
+                                <li>Официальное оформление (договор, акты, безналичный расчет)</li>
+                            </ul>
+                        </article>
+                        <article class="rounded-xl border border-slate-200 p-6 shadow-sm">
+                            <h3 class="mb-4 text-xl font-bold text-slate-900">Комплексный подход</h3>
+                            <ul class="space-y-2 text-slate-600">
+                                <li>Разработка + маркетинг в одном месте</li>
+                                <li>Настройка контекстной рекламы и SEO</li>
+                                <li>Интеграция с CRM-системами (Битрикс24, AmoCRM)</li>
+                                <li>Техническая поддержка 24/7</li>
+                            </ul>
+                        </article>
+                        <article class="rounded-xl border border-slate-200 p-6 shadow-sm">
+                            <h3 class="mb-4 text-xl font-bold text-slate-900">Быстрые сроки и прозрачность</h3>
+                            <ul class="space-y-2 text-slate-600">
+                                <li>Разработка за 7–21 день (вместо 1–3 месяцев у конкурентов)</li>
+                                <li>Фиксированная цена в договоре без скрытых доплат</li>
+                                <li>Поэтапная оплата (50% на 50% или 30%/40%/30%)</li>
+                                <li>Прямая коммуникация с исполнителем</li>
+                            </ul>
+                        </article>
+                        <article class="rounded-xl border border-slate-200 p-6 shadow-sm">
+                            <h3 class="mb-4 text-xl font-bold text-slate-900">Гарантии и надежность</h3>
+                            <ul class="space-y-2 text-slate-600">
+                                <li>Гарантия на код — 12 месяцев</li>
+                                <li>Гарантия на скорость — Core Web Vitals 90+ или возврат 20%</li>
+                                <li>Гарантия на SEO — рост позиций за 3 месяца или возврат 50%</li>
+                                <li>Гарантия сроков — задержка &gt; 3 дней = скидка 10%</li>
+                            </ul>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="services" class="scroll-mt-20 bg-slate-50 py-16 md:py-20">
+                <div class="mx-auto max-w-6xl px-4">
+                    <h2 class="mb-4 text-center text-3xl font-bold text-slate-900 md:text-4xl">Услуги веб-разработки и интернет-маркетинга</h2>
+                    <p class="mx-auto mb-12 max-w-3xl text-center text-lg text-slate-600">Комплексные решения для бизнеса — от лендинга до интернет-магазина с последующим продвижением</p>
+                    <div class="mb-16 grid gap-6 lg:grid-cols-3">
+                        <article class="flex flex-col rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+                            <h3 class="mb-2 text-xl font-bold text-slate-900">Express Landing</h3>
+                            <p class="mb-4 text-slate-600">Для стартапов, тестирования гипотез, сферы услуг</p>
+                            <ul class="mb-6 flex-1 space-y-2 text-slate-600">
+                                <li>Одностраничный продающий сайт (6-8 экранов)</li>
+                                <li>Мобильная адаптивность и оптимизация скорости</li>
+                                <li>Интеграция Telegram-уведомлений о заявках</li>
+                                <li>Базовая SEO-подготовка и аналитика</li>
+                                <li>Формы заявок с защитой от спама</li>
+                            </ul>
+                            <p class="mb-1 text-sm text-slate-500">Срок: 7–10 дней</p>
+                            <p class="mb-1 text-2xl font-bold text-slate-900">850 BYN <span class="text-base font-normal text-slate-400 line-through">950 BYN</span></p>
+                            <p class="mb-4 text-sm text-emerald-700">Настройка Яндекс.Директ бесплатно или 1 месяц SEO за 50%</p>
+                            <a href="#contact" class="mt-auto inline-flex justify-center rounded-lg bg-brand px-6 py-2 font-semibold text-white hover:bg-brand-dark">Заказать</a>
+                        </article>
+                        <article class="flex flex-col rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+                            <h3 class="mb-2 text-xl font-bold text-slate-900">Бизнес-Сайт SEO Ready</h3>
+                            <p class="mb-4 text-slate-600">Для компаний сферы услуг, B2B, производственных предприятий</p>
+                            <ul class="mb-6 flex-1 space-y-2 text-slate-600">
+                                <li>Корпоративный сайт до 10–15 страниц</li>
+                                <li>Семантическая структура под 30+ запросов</li>
+                                <li>Микроразметка Schema.org и техническая SEO</li>
+                                <li>Интеграция с CRM и многоязычность</li>
+                                <li>Регистрация в БелГИЭ и локальный хостинг</li>
+                            </ul>
+                            <p class="mb-1 text-sm text-slate-500">Срок: 15–22 дня</p>
+                            <p class="mb-1 text-2xl font-bold text-slate-900">1 650 BYN <span class="text-base font-normal text-slate-400 line-through">1 850 BYN</span></p>
+                            <p class="mb-4 text-sm text-emerald-700">Комплексный аудит текущего сайта бесплатно + 1 месяц SEO в подарок</p>
+                            <a href="#contact" class="mt-auto inline-flex justify-center rounded-lg bg-brand px-6 py-2 font-semibold text-white hover:bg-brand-dark">Заказать</a>
+                        </article>
+                        <article class="flex flex-col rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+                            <h3 class="mb-2 text-xl font-bold text-slate-900">Каталог / E-Commerce Start</h3>
+                            <p class="mb-4 text-slate-600">Для торговых компаний, дилеров, производителей</p>
+                            <ul class="mb-6 flex-1 space-y-2 text-slate-600">
+                                <li>Интернет-магазин на WooCommerce до 50–100 товаров</li>
+                                <li>Каталог с категориями и фильтрацией</li>
+                                <li>Подключение платежных систем (ЕРИП, bePaid, WebPay)</li>
+                                <li>Импорт товаров из Excel/CSV</li>
+                                <li>Интеграция со складом/CRM</li>
+                            </ul>
+                            <p class="mb-1 text-sm text-slate-500">Срок: 25–35 дней</p>
+                            <p class="mb-1 text-2xl font-bold text-slate-900">2 650 BYN <span class="text-base font-normal text-slate-400 line-through">2 900 BYN</span></p>
+                            <p class="mb-4 text-sm text-emerald-700">Настройка Google Merchant Center и Яндекс.Маркета бесплатно</p>
+                            <a href="#contact" class="mt-auto inline-flex justify-center rounded-lg bg-brand px-6 py-2 font-semibold text-white hover:bg-brand-dark">Заказать</a>
+                        </article>
+                    </div>
+
+                    <h3 class="mb-8 text-center text-2xl font-bold text-slate-900">Ежемесячное обслуживание и продвижение</h3>
+                    <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+                        <article class="rounded-xl border border-slate-200 bg-white p-6">
+                            <h4 class="mb-2 text-lg font-bold">Техническая поддержка</h4>
+                            <p class="mb-4 text-xl font-semibold text-brand">250 BYN/мес.</p>
+                            <ul class="space-y-2 text-sm text-slate-600">
+                                <li>Резервные копии и мониторинг 24/7</li>
+                                <li>Обновления WordPress и плагинов</li>
+                                <li>До 3 часов правок в месяц</li>
+                                <li>Проверка на вредоносный код</li>
+                            </ul>
+                        </article>
+                        <article class="rounded-xl border border-slate-200 bg-white p-6">
+                            <h4 class="mb-2 text-lg font-bold">Контекстная реклама</h4>
+                            <p class="mb-4 text-xl font-semibold text-brand">450 BYN/мес. + бюджет</p>
+                            <ul class="space-y-2 text-sm text-slate-600">
+                                <li>Ведение Яндекс.Директ и Google Ads</li>
+                                <li>A/B тестирование и оптимизация</li>
+                                <li>Еженедельные отчеты по эффективности</li>
+                                <li>Анализ стоимости лида (CPL)</li>
+                            </ul>
+                        </article>
+                        <article class="rounded-xl border border-slate-200 bg-white p-6">
+                            <h4 class="mb-2 text-lg font-bold">SEO + Контент</h4>
+                            <p class="mb-4 text-xl font-semibold text-brand">750 BYN/мес.</p>
+                            <ul class="space-y-2 text-sm text-slate-600">
+                                <li>Техническая SEO-оптимизация</li>
+                                <li>3–4 экспертных статьи в месяц</li>
+                                <li>Локальное SEO (Яндекс.Карты, Google Business)</li>
+                                <li>Ежемесячные отчеты по позициям</li>
+                            </ul>
+                        </article>
+                        <article class="rounded-xl border border-slate-200 bg-white p-6">
+                            <h4 class="mb-2 text-lg font-bold">Комплексный маркетинг</h4>
+                            <p class="mb-4 text-xl font-semibold text-brand">1 200 BYN/мес. + бюджет</p>
+                            <ul class="space-y-2 text-sm text-slate-600">
+                                <li>Всё вышеперечисленное + SMM</li>
+                                <li>Стратегические консультации</li>
+                                <li>Полное управление digital-присутствием</li>
+                            </ul>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="calculator" class="scroll-mt-20 py-16 md:py-20">
+                <div class="mx-auto max-w-6xl px-4">
+                    <h2 class="mb-4 text-center text-3xl font-bold text-slate-900 md:text-4xl">Рассчитайте стоимость проекта</h2>
+                    <p class="mx-auto mb-12 max-w-3xl text-center text-lg text-slate-600">Соберите комплектацию за минуту: получите ориентир по цене и срокам, затем отправим точный расчёт после брифа.</p>
+                    <div class="grid items-start gap-8 lg:grid-cols-5">
+                        <form class="space-y-8 lg:col-span-3" onsubmit="return false;">
+                            <fieldset>
+                                <legend class="mb-4 text-xl font-bold text-slate-900">1. Тип сайта</legend>
+                                <label for="calc-package" class="mb-1 block text-sm font-medium">Пакет</label>
+                                <select id="calc-package" name="calc-package" class="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:border-brand focus:ring-2 focus:ring-brand/20">
+                                    <option value="landing" selected>Express Landing — 850 BYN, 7–10 дней</option>
+                                    <option value="business">Бизнес-Сайт SEO Ready — 1 650 BYN, 15–22 дня</option>
+                                    <option value="ecommerce">Каталог / E-Commerce Start — 2 650 BYN, 25–35 дней</option>
+                                </select>
+                            </fieldset>
+
+                            <fieldset data-calc-volume-wrap>
+                                <legend class="mb-4 text-xl font-bold text-slate-900">2. Объём</legend>
+                                <div class="rounded-xl border border-slate-200 p-5">
+                                    <div class="mb-3 flex items-center justify-between gap-4">
+                                        <label for="calc-volume" data-calc-volume-label class="font-medium text-slate-800">Количество экранов</label>
+                                        <span data-calc-volume-value class="font-semibold text-brand">8 экр.</span>
+                                    </div>
+                                    <input
+                                        id="calc-volume"
+                                        data-calc-volume
+                                        type="range"
+                                        min="6"
+                                        max="16"
+                                        step="1"
+                                        value="8"
+                                        class="w-full accent-brand"
+                                    >
+                                    <p data-calc-volume-hint class="mt-2 text-sm text-slate-500">В тарифе: 8 экр. Сверх тарифа — 80 BYN за единицу.</p>
+                                </div>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend class="mb-4 text-xl font-bold text-slate-900">3. Дополнительно</legend>
+                                <label for="calc-addons" class="mb-1 block text-sm font-medium">Дополнительные опции</label>
+                                <select id="calc-addons" name="calc-addons" class="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:border-brand focus:ring-2 focus:ring-brand/20">
+                                    <option value="" selected>Без дополнительных опций</option>
+                                    <option value="design">Дизайн-концепт с нуля — +500 BYN</option>
+                                    <option value="i18n">Мультиязычность — +350 BYN</option>
+                                    <option value="crm">Интеграция с CRM — +400 BYN</option>
+                                    <option value="payments">Платежи ЕРИП / bePaid / WebPay — +250 BYN</option>
+                                    <option value="belgie">Регистрация в БелГИЭ и локальный хостинг — +150 BYN</option>
+                                </select>
+                                <p data-calc-addons-hint class="mt-2 text-sm text-slate-500"></p>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend class="mb-4 text-xl font-bold text-slate-900">4. Сопровождение</legend>
+                                <label for="calc-retainer" class="mb-1 block text-sm font-medium">Ежемесячный пакет</label>
+                                <select id="calc-retainer" name="calc-retainer" class="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:border-brand focus:ring-2 focus:ring-brand/20">
+                                    <option value="none" selected>Без сопровождения — 0 BYN/мес.</option>
+                                    <option value="support">Техническая поддержка — 250 BYN/мес.</option>
+                                    <option value="ads">Контекстная реклама — 450 BYN/мес. + бюджет</option>
+                                    <option value="seo">SEO + контент — 750 BYN/мес.</option>
+                                    <option value="complex">Комплексный маркетинг — 1 200 BYN/мес. + бюджет</option>
+                                </select>
+                            </fieldset>
+                        </form>
+
+                        <aside class="lg:sticky lg:top-24 lg:col-span-2">
+                            <div class="rounded-xl border border-slate-200 bg-slate-50 p-6 shadow-sm" aria-live="polite">
+                                <h3 class="mb-4 text-lg font-bold text-slate-900">Ориентировочная смета</h3>
+                                <p class="text-sm text-slate-500">Разово</p>
+                                <p data-calc-one-time class="mb-4 text-3xl font-bold text-slate-900">850 BYN</p>
+                                <p class="text-sm text-slate-500">Ежемесячно</p>
+                                <p data-calc-monthly class="mb-4 text-2xl font-bold text-brand">0 BYN</p>
+                                <p class="text-sm text-slate-500">Срок</p>
+                                <p data-calc-days class="mb-4 text-lg font-semibold text-slate-900">7–10 дней</p>
+                                <p data-calc-ads-note class="mb-4 hidden text-sm text-amber-700">Рекламный бюджет в сумму не входит.</p>
+                                <ul data-calc-breakdown class="mb-6 space-y-2 border-t border-slate-200 pt-4"></ul>
+                                <p class="mb-5 text-xs text-slate-500">Это ориентир. Фиксируем цену в договоре после брифа — без скрытых доплат.</p>
+                                <a data-calc-cta href="#contact" class="inline-flex w-full justify-center rounded-lg bg-brand px-6 py-3 font-semibold text-white hover:bg-brand-dark">Получить точный расчёт</a>
+                                <a href="#calculator-guide" class="mt-3 inline-flex w-full justify-center text-center text-sm font-medium text-brand hover:underline">Не знаете, что выбрать? Ответьте на вопросы</a>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </section>
+
+            <section id="calculator-guide" class="scroll-mt-20 bg-slate-50 py-16 md:py-20">
+                <div class="mx-auto max-w-6xl px-4">
+                    <h2 class="mb-4 text-center text-3xl font-bold text-slate-900 md:text-4xl">Не уверены, что заказывать?</h2>
+                    <p class="mx-auto mb-12 max-w-3xl text-center text-lg text-slate-600">Ответьте на несколько вопросов про бизнес — мы сами соберём состав работ и ориентир по цене. Без технических названий услуг.</p>
+                    <div class="grid items-start gap-8 lg:grid-cols-5">
+                        <div class="lg:col-span-3">
+                            <p data-guide-progress class="mb-3 text-sm font-medium text-brand">Вопрос 1</p>
+                            <h3 data-guide-title class="mb-2 text-xl font-bold text-slate-900">Что сайт должен делать для бизнеса?</h3>
+                            <p data-guide-hint class="mb-6 text-slate-600">Выберите ситуацию, которая ближе всего.</p>
+                            <div data-guide-options class="space-y-3"></div>
+                            <div data-guide-extras class="mt-6 hidden rounded-xl border border-slate-200 bg-white p-4"></div>
+                            <div class="mt-6 flex flex-wrap gap-3">
+                                <button data-guide-back type="button" class="hidden rounded-lg border border-slate-300 px-4 py-2 font-medium text-slate-700 hover:bg-white">Назад</button>
+                                <button data-guide-restart type="button" class="hidden rounded-lg border border-slate-300 px-4 py-2 font-medium text-slate-700 hover:bg-white">Начать заново</button>
+                            </div>
+                        </div>
+                        <aside class="lg:sticky lg:top-24 lg:col-span-2">
+                            <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm" aria-live="polite">
+                                <h3 class="mb-3 text-lg font-bold text-slate-900">Ориентир по ответам</h3>
+                                <p data-guide-why class="mb-4 text-sm text-slate-600">Ответьте на первый вопрос — справа появится ориентир по цене.</p>
+                                <div data-guide-empty>
+                                    <p class="text-sm text-slate-500">Смета появится после первого ответа.</p>
+                                </div>
+                                <div data-guide-totals class="hidden">
+                                    <p class="text-sm text-slate-500">Разово</p>
+                                    <p data-guide-one-time class="mb-4 text-3xl font-bold text-slate-900">0 BYN</p>
+                                    <p class="text-sm text-slate-500">Ежемесячно</p>
+                                    <p data-guide-monthly class="mb-4 text-2xl font-bold text-brand">0 BYN</p>
+                                    <p class="text-sm text-slate-500">Срок</p>
+                                    <p data-guide-days class="mb-4 text-lg font-semibold text-slate-900">—</p>
+                                    <p data-guide-ads-note class="mb-4 hidden text-sm text-amber-700">Рекламный бюджет в сумму не входит.</p>
+                                    <ul data-guide-breakdown class="mb-6 space-y-2 border-t border-slate-200 pt-4"></ul>
+                                </div>
+                                <p class="mb-5 text-xs text-slate-500">Фиксируем цену в договоре после брифа — без скрытых доплат.</p>
+                                <a data-guide-cta href="#contact" class="inline-flex w-full justify-center rounded-lg bg-brand px-6 py-3 font-semibold text-white hover:bg-brand-dark">Обсудить этот вариант</a>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </section>
+
+            <section id="process" class="scroll-mt-20 py-16 md:py-20">
+                <div class="mx-auto max-w-6xl px-4">
+                    <h2 class="mb-10 text-center text-3xl font-bold text-slate-900 md:text-4xl">Процесс разработки — от идеи до лидов за 14–21 день</h2>
+                    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                        <article class="rounded-xl border border-slate-200 p-6">
+                            <div class="mb-3 flex items-center gap-3">
+                                <span class="flex h-10 w-10 items-center justify-center rounded-full bg-brand font-bold text-white">1</span>
+                                <div>
+                                    <h3 class="font-bold text-slate-900">Знакомство и брифинг</h3>
+                                    <p class="text-sm text-slate-500">1–2 дня</p>
+                                </div>
+                            </div>
+                            <ul class="space-y-1 text-slate-600">
+                                <li>Заполнение бриф-опросника</li>
+                                <li>Анализ текущей ситуации</li>
+                                <li>Определение целей и задач</li>
+                                <li>Бесплатная консультация</li>
+                            </ul>
+                        </article>
+                        <article class="rounded-xl border border-slate-200 p-6">
+                            <div class="mb-3 flex items-center gap-3">
+                                <span class="flex h-10 w-10 items-center justify-center rounded-full bg-brand font-bold text-white">2</span>
+                                <div>
+                                    <h3 class="font-bold text-slate-900">Исследование и прототипирование</h3>
+                                    <p class="text-sm text-slate-500">3–5 дней</p>
+                                </div>
+                            </div>
+                            <ul class="space-y-1 text-slate-600">
+                                <li>Анализ конкурентов</li>
+                                <li>Разработка структуры сайта</li>
+                                <li>Создание прототипа (wireframe)</li>
+                                <li>Согласование технического задания</li>
+                            </ul>
+                        </article>
+                        <article class="rounded-xl border border-slate-200 p-6">
+                            <div class="mb-3 flex items-center gap-3">
+                                <span class="flex h-10 w-10 items-center justify-center rounded-full bg-brand font-bold text-white">3</span>
+                                <div>
+                                    <h3 class="font-bold text-slate-900">Дизайн и верстка</h3>
+                                    <p class="text-sm text-slate-500">7–14 дней</p>
+                                </div>
+                            </div>
+                            <ul class="space-y-1 text-slate-600">
+                                <li>Дизайн-концепт (если нужен)</li>
+                                <li>Верстка на чистом WordPress</li>
+                                <li>Адаптивность под все устройства</li>
+                                <li>Оптимизация скорости</li>
+                            </ul>
+                        </article>
+                        <article class="rounded-xl border border-slate-200 p-6">
+                            <div class="mb-3 flex items-center gap-3">
+                                <span class="flex h-10 w-10 items-center justify-center rounded-full bg-brand font-bold text-white">4</span>
+                                <div>
+                                    <h3 class="font-bold text-slate-900">Наполнение и SEO</h3>
+                                    <p class="text-sm text-slate-500">3–5 дней</p>
+                                </div>
+                            </div>
+                            <ul class="space-y-1 text-slate-600">
+                                <li>Наполнение контентом</li>
+                                <li>SEO-оптимизация страниц</li>
+                                <li>Настройка метрик и аналитики</li>
+                                <li>Тестирование функционала</li>
+                            </ul>
+                        </article>
+                        <article class="rounded-xl border border-slate-200 p-6">
+                            <div class="mb-3 flex items-center gap-3">
+                                <span class="flex h-10 w-10 items-center justify-center rounded-full bg-brand font-bold text-white">5</span>
+                                <div>
+                                    <h3 class="font-bold text-slate-900">Запуск и обучение</h3>
+                                    <p class="text-sm text-slate-500">1–2 дня</p>
+                                </div>
+                            </div>
+                            <ul class="space-y-1 text-slate-600">
+                                <li>Перенос на боевой домен</li>
+                                <li>Регистрация в БелГИЭ</li>
+                                <li>Обучение клиента работе с сайтом</li>
+                                <li>Передача доступов и документации</li>
+                            </ul>
+                        </article>
+                        <article class="rounded-xl border border-slate-200 p-6">
+                            <div class="mb-3 flex items-center gap-3">
+                                <span class="flex h-10 w-10 items-center justify-center rounded-full bg-brand font-bold text-white">6</span>
+                                <div>
+                                    <h3 class="font-bold text-slate-900">Поддержка и развитие</h3>
+                                    <p class="text-sm text-slate-500">Постоянно</p>
+                                </div>
+                            </div>
+                            <ul class="space-y-1 text-slate-600">
+                                <li>Техническая поддержка</li>
+                                <li>Маркетинговое продвижение</li>
+                                <li>Оптимизация и улучшения</li>
+                            </ul>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="about" class="scroll-mt-20 bg-slate-50 py-16 md:py-20">
+                <div class="mx-auto max-w-3xl px-4">
+                    <h2 class="mb-6 text-center text-3xl font-bold text-slate-900 md:text-4xl">О нашей студии</h2>
+                    <p class="mb-6 text-lg text-slate-600">Мы — Performance Web-Studio, специализирующаяся на разработке коммерческих сайтов на WordPress с последующим комплексным интернет-продвижением.</p>
+                    <h3 class="mb-3 text-xl font-bold text-slate-900">Наши принципы:</h3>
+                    <ul class="mb-6 list-disc space-y-1 pl-5 text-slate-600">
+                        <li>Качество кода и скорость работы</li>
+                        <li>SEO Inside — готовность к продвижению с момента запуска</li>
+                        <li>Полное соответствие требованиям белорусского законодательства</li>
+                        <li>Честные цены без скрытых доплат</li>
+                        <li>Прямая коммуникация и индивидуальный подход</li>
+                    </ul>
+                    <h3 class="mb-3 text-xl font-bold text-slate-900">География работы:</h3>
+                    <p class="text-slate-600">Минск, Брест, Гродно, Гомель, Витебск, Могилев — работаем по всей Беларуси.</p>
+                </div>
+            </section>
+
+            <section id="comparison" class="scroll-mt-20 py-16 md:py-20">
+                <div class="mx-auto max-w-6xl px-4">
+                    <h2 class="mb-10 text-center text-3xl font-bold text-slate-900 md:text-4xl">Почему мы — лучший выбор для вашего бизнеса</h2>
+                    <div class="overflow-x-auto rounded-xl border border-slate-200">
+                        <table class="min-w-full text-left text-sm">
+                            <thead class="bg-slate-50">
+                                <tr>
+                                    <th class="px-4 py-3 font-semibold">Параметр</th>
+                                    <th class="bg-indigo-50 px-4 py-3 font-semibold text-brand">Мы</th>
+                                    <th class="px-4 py-3 font-semibold">Фрилансеры</th>
+                                    <th class="px-4 py-3 font-semibold">Крупные агентства</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200">
+                                <tr>
+                                    <td class="px-4 py-3">Цена разработки</td>
+                                    <td class="bg-indigo-50 px-4 py-3 font-semibold">950–2 900 BYN</td>
+                                    <td class="px-4 py-3">450–900 BYN</td>
+                                    <td class="px-4 py-3">2 500–5 000+ BYN</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3">Сроки разработки</td>
+                                    <td class="bg-indigo-50 px-4 py-3 font-semibold">7–35 дней</td>
+                                    <td class="px-4 py-3">4–14 дней</td>
+                                    <td class="px-4 py-3">30–90+ дней</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3">Core Web Vitals</td>
+                                    <td class="bg-indigo-50 px-4 py-3 font-semibold">90+</td>
+                                    <td class="px-4 py-3">40–60</td>
+                                    <td class="px-4 py-3">70–85</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3">SEO Inside</td>
+                                    <td class="bg-indigo-50 px-4 py-3 font-semibold">Да</td>
+                                    <td class="px-4 py-3">Нет</td>
+                                    <td class="px-4 py-3">Частично</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3">Официальный договор</td>
+                                    <td class="bg-indigo-50 px-4 py-3 font-semibold">Да</td>
+                                    <td class="px-4 py-3">Нет</td>
+                                    <td class="px-4 py-3">Да</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3">Гарантии</td>
+                                    <td class="bg-indigo-50 px-4 py-3 font-semibold">12 месяцев</td>
+                                    <td class="px-4 py-3">Нет</td>
+                                    <td class="px-4 py-3">6–12 месяцев</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3">Поддержка после сдачи</td>
+                                    <td class="bg-indigo-50 px-4 py-3 font-semibold">Да</td>
+                                    <td class="px-4 py-3">Нет</td>
+                                    <td class="px-4 py-3">Да</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3">Регистрация в БелГИЭ</td>
+                                    <td class="bg-indigo-50 px-4 py-3 font-semibold">Включено</td>
+                                    <td class="px-4 py-3">Нет</td>
+                                    <td class="px-4 py-3">Дополнительно</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3">Локальный хостинг</td>
+                                    <td class="bg-indigo-50 px-4 py-3 font-semibold">Включено</td>
+                                    <td class="px-4 py-3">Нет</td>
+                                    <td class="px-4 py-3">Дополнительно</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3">Прямая коммуникация</td>
+                                    <td class="bg-indigo-50 px-4 py-3 font-semibold">Да</td>
+                                    <td class="px-4 py-3">Да</td>
+                                    <td class="px-4 py-3">Через менеджеров</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="mx-auto mt-8 max-w-3xl text-center text-slate-600">Мы занимаем уникальную позицию на рынке — качество и надежность крупных агентств по доступной цене среднего сегмента.</p>
+                </div>
+            </section>
+
+            <section id="faq" class="scroll-mt-20 bg-slate-50 py-16 md:py-20">
+                <div class="mx-auto max-w-3xl px-4">
+                    <h2 class="mb-10 text-center text-3xl font-bold text-slate-900 md:text-4xl">Часто задаваемые вопросы</h2>
+                    <div class="space-y-3">
+                        <div data-faq-item class="overflow-hidden rounded-xl bg-white shadow-sm">
+                            <button data-faq-button type="button" aria-expanded="false" class="flex w-full items-center justify-between gap-4 px-5 py-4 text-left font-semibold text-slate-900 hover:bg-slate-50">
+                                Почему цены ниже, чем у крупных агентств?
+                                <span data-faq-icon class="text-slate-400 transition-transform">▼</span>
+                            </button>
+                            <div data-faq-answer class="hidden px-5 pb-4 text-slate-600">
+                                У нас оптимизированные процессы, нет бюрократии, используем современные инструменты автоматизации. Экономию передаем клиентам.
+                            </div>
+                        </div>
+                        <div data-faq-item class="overflow-hidden rounded-xl bg-white shadow-sm">
+                            <button data-faq-button type="button" aria-expanded="false" class="flex w-full items-center justify-between gap-4 px-5 py-4 text-left font-semibold text-slate-900 hover:bg-slate-50">
+                                Что такое Core Web Vitals и почему это важно?
+                                <span data-faq-icon class="text-slate-400 transition-transform">▼</span>
+                            </button>
+                            <div data-faq-answer class="hidden px-5 pb-4 text-slate-600">
+                                Это показатели Google, влияющие на ранжирование в поиске и пользовательский опыт. Сайты с низкими показателями теряют до 70% мобильного трафика.
+                            </div>
+                        </div>
+                        <div data-faq-item class="overflow-hidden rounded-xl bg-white shadow-sm">
+                            <button data-faq-button type="button" aria-expanded="false" class="flex w-full items-center justify-between gap-4 px-5 py-4 text-left font-semibold text-slate-900 hover:bg-slate-50">
+                                Нужна ли регистрация в БелГИЭ?
+                                <span data-faq-icon class="text-slate-400 transition-transform">▼</span>
+                            </button>
+                            <div data-faq-answer class="hidden px-5 pb-4 text-slate-600">
+                                Да, согласно Указу Президента РБ №60, сайты белорусских субъектов хозяйствования обязаны регистрироваться в БелГИЭ. Мы делаем это под ключ.
+                            </div>
+                        </div>
+                        <div data-faq-item class="overflow-hidden rounded-xl bg-white shadow-sm">
+                            <button data-faq-button type="button" aria-expanded="false" class="flex w-full items-center justify-between gap-4 px-5 py-4 text-left font-semibold text-slate-900 hover:bg-slate-50">
+                                Можете ли работать с удаленными клиентами из других городов?
+                                <span data-faq-icon class="text-slate-400 transition-transform">▼</span>
+                            </button>
+                            <div data-faq-answer class="hidden px-5 pb-4 text-slate-600">
+                                Да, мы работаем со всей Беларусью. Используем современные инструменты коммуникации и дистанционной работы.
+                            </div>
+                        </div>
+                        <div data-faq-item class="overflow-hidden rounded-xl bg-white shadow-sm">
+                            <button data-faq-button type="button" aria-expanded="false" class="flex w-full items-center justify-between gap-4 px-5 py-4 text-left font-semibold text-slate-900 hover:bg-slate-50">
+                                Что входит в техническую поддержку?
+                                <span data-faq-icon class="text-slate-400 transition-transform">▼</span>
+                            </button>
+                            <div data-faq-answer class="hidden px-5 pb-4 text-slate-600">
+                                Резервные копии, обновления, мониторинг доступности, мелкие правки, консультации. Всё, чтобы сайт работал стабильно.
+                            </div>
+                        </div>
+                        <div data-faq-item class="overflow-hidden rounded-xl bg-white shadow-sm">
+                            <button data-faq-button type="button" aria-expanded="false" class="flex w-full items-center justify-between gap-4 px-5 py-4 text-left font-semibold text-slate-900 hover:bg-slate-50">
+                                Как быстро можно увидеть первые результаты от SEO?
+                                <span data-faq-icon class="text-slate-400 transition-transform">▼</span>
+                            </button>
+                            <div data-faq-answer class="hidden px-5 pb-4 text-slate-600">
+                                Первые улучшения видны через 1–2 месяца, значительный рост позиций и трафика — через 3–6 месяцев в зависимости от конкуренции.
+                            </div>
+                        </div>
+                        <div data-faq-item class="overflow-hidden rounded-xl bg-white shadow-sm">
+                            <button data-faq-button type="button" aria-expanded="false" class="flex w-full items-center justify-between gap-4 px-5 py-4 text-left font-semibold text-slate-900 hover:bg-slate-50">
+                                Работаете ли вы с ИП и юрлицами?
+                                <span data-faq-icon class="text-slate-400 transition-transform">▼</span>
+                            </button>
+                            <div data-faq-answer class="hidden px-5 pb-4 text-slate-600">
+                                Да, мы работаем с ИП и юрлицами. Официальный договор, безналичный расчет с НДС/без НДС, закрывающие акты.
+                            </div>
+                        </div>
+                        <div data-faq-item class="overflow-hidden rounded-xl bg-white shadow-sm">
+                            <button data-faq-button type="button" aria-expanded="false" class="flex w-full items-center justify-between gap-4 px-5 py-4 text-left font-semibold text-slate-900 hover:bg-slate-50">
+                                Как происходит оплата?
+                                <span data-faq-icon class="text-slate-400 transition-transform">▼</span>
+                            </button>
+                            <div data-faq-answer class="hidden px-5 pb-4 text-slate-600">
+                                Стандартная модель — 50% аванс при заключении договора, 50% после демонстрации на тестовом домене. Для проектов от 2 500 BYN — поэтапная оплата (30%/40%/30%).
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="scroll-mt-20 py-16 md:py-20">
+                <div class="mx-auto max-w-6xl px-4">
+                    <h2 class="mb-3 text-center text-3xl font-bold text-slate-900 md:text-4xl">Готовы обсудить ваш проект?</h2>
+                    <p class="mb-10 text-center text-lg text-slate-600">Бесплатная консультация и аудит — 30 минут</p>
+                    <div class="grid gap-10 lg:grid-cols-2">
+                        <form class="space-y-4 rounded-xl border border-slate-200 p-6 shadow-sm">
+                            <div>
+                                <label for="name" class="mb-1 block text-sm font-medium">Имя</label>
+                                <input type="text" name="name" id="name" required class="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:border-brand focus:ring-2 focus:ring-brand/20">
+                            </div>
+                            <div>
+                                <label for="phone" class="mb-1 block text-sm font-medium">Телефон</label>
+                                <input type="tel" name="phone" id="phone" required class="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:border-brand focus:ring-2 focus:ring-brand/20">
+                            </div>
+                            <div>
+                                <label for="email" class="mb-1 block text-sm font-medium">Email</label>
+                                <input type="email" name="email" id="email" required class="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:border-brand focus:ring-2 focus:ring-brand/20">
+                            </div>
+                            <div>
+                                <label for="site-type" class="mb-1 block text-sm font-medium">Тип сайта</label>
+                                <select name="site-type" id="site-type" class="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:border-brand focus:ring-2 focus:ring-brand/20">
+                                    <option value="">Выберите тип сайта</option>
+                                    <option value="landing">Express Landing</option>
+                                    <option value="business">Бизнес-Сайт SEO Ready</option>
+                                    <option value="ecommerce">Каталог / E-Commerce Start</option>
+                                    <option value="other">Другое</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="message" class="mb-1 block text-sm font-medium">Сообщение</label>
+                                <textarea name="message" id="message" rows="4" placeholder="Расскажите о вашем проекте..." class="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:border-brand focus:ring-2 focus:ring-brand/20"></textarea>
+                            </div>
+                            <button type="submit" class="w-full rounded-lg bg-brand px-6 py-3 font-semibold text-white hover:bg-brand-dark">Отправить заявку</button>
+                        </form>
+                        <div>
+                            <h3 class="mb-6 text-xl font-bold text-slate-900">Контакты</h3>
+                            <ul class="mb-8 space-y-4 text-slate-600">
+                                <li><span class="block text-sm text-slate-500">Телефон</span>+375 (XX) XXX-XX-XX</li>
+                                <li><span class="block text-sm text-slate-500">Email</span>info@webstudio.by</li>
+                                <li><span class="block text-sm text-slate-500">Telegram</span>@webstudio</li>
+                                <li><span class="block text-sm text-slate-500">Офис</span>г. Минск, ул. Примерная, 1</li>
+                            </ul>
+                            <h4 class="mb-2 font-bold">Время работы:</h4>
+                            <p class="mb-6 text-slate-600">Пн-Пт: 9:00 - 18:00 | Сб-Вс: выходной</p>
+                            <div class="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                                <a href="tel:+375256873386" class="rounded-lg bg-brand px-5 py-2 text-center font-semibold text-white hover:bg-brand-dark">Заказать обратный звонок</a>
+                                <a href="#" class="rounded-lg bg-brand px-5 py-2 text-center font-semibold text-white hover:bg-brand-dark">Написать в Telegram</a>
+                                <a href="#contact" class="rounded-lg border border-brand px-5 py-2 text-center font-semibold text-brand hover:bg-indigo-50">Заполнить бриф</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="border-t border-slate-200 bg-slate-900 text-slate-300">
+            <div class="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+                <div class="sm:col-span-2 xl:col-span-1">
+                    <p class="mb-2 text-lg font-bold text-white">Web Studio</p>
+                    <p>Performance Web-Studio для бизнеса в Беларуси</p>
+                </div>
+                <div>
+                    <h4 class="mb-3 font-bold text-white">Навигация</h4>
+                    <ul class="space-y-2">
+                        <li><a class="hover:text-white" href="#services">Услуги</a></li>
+                        <li><a class="hover:text-white" href="#calculator">Калькулятор</a></li>
+                        <li><a class="hover:text-white" href="#calculator-guide">Подбор</a></li>
+                        <li><a class="hover:text-white" href="#services">Тарифы</a></li>
+                        <li><a class="hover:text-white" href="#cases">Кейсы</a></li>
+                        <li><a class="hover:text-white" href="#about">О нас</a></li>
+                        <li><a class="hover:text-white" href="#contact">Контакты</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="mb-3 font-bold text-white">Услуги</h4>
+                    <ul class="space-y-2">
+                        <li>Разработка сайтов</li>
+                        <li>SEO-продвижение</li>
+                        <li>Контекстная реклама</li>
+                        <li>Техническая поддержка</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="mb-3 font-bold text-white">Контакты</h4>
+                    <ul class="space-y-2">
+                        <li>+375 (XX) XXX-XX-XX</li>
+                        <li>info@webstudio.by</li>
+                        <li>@webstudio</li>
+                        <li>г. Минск, ул. Примерная, 1</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="mb-3 font-bold text-white">Юридическая информация</h4>
+                    <ul class="space-y-2">
+                        <li>Регистрация в БелГИЭ № [номер]</li>
+                        <li>УНП [номер]</li>
+                        <li>Официальный договор</li>
+                        <li>Политика конфиденциальности</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="mb-3 font-bold text-white">Социальные сети</h4>
+                    <ul class="space-y-2">
+                        <li><a class="hover:text-white" href="#">Instagram</a></li>
+                        <li><a class="hover:text-white" href="#">Telegram</a></li>
+                        <li><a class="hover:text-white" href="#">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="border-t border-slate-800 px-4 py-6 text-center text-sm text-slate-500">© 2026 Web Studio. Все права защищены.</p>
+        </footer>
     </div>
     <script type="module" src="/src/main.js"></script>
 </body>
