@@ -13,8 +13,10 @@ const PACKAGES = {
             unit: 'экр.',
             extraPrice: 80,
             extraDays: 1,
+            extraGain: 'Больше точек входа',
         },
         includedAddons: [],
+        gain: 'Заявки с рекламы',
     },
     business: {
         label: 'Бизнес-Сайт SEO Ready',
@@ -30,8 +32,10 @@ const PACKAGES = {
             unit: 'стр.',
             extraPrice: 90,
             extraDays: 1,
+            extraGain: 'Больше точек входа',
         },
         includedAddons: ['i18n', 'crm', 'belgie'],
+        gain: 'Клиенты из поиска',
     },
     ecommerce: {
         label: 'Каталог / E-Commerce Start',
@@ -47,26 +51,29 @@ const PACKAGES = {
             unit: 'тов.',
             extraPrice: 12,
             extraDaysPer: 50,
+            extraGain: 'Больше точек входа',
         },
         includedAddons: ['crm', 'payments', 'belgie'],
+        gain: 'Продажи без менеджера',
     },
 };
 
 const ADDONS = {
-    design: { label: 'Дизайн-концепт с нуля', price: 500, days: 3 },
-    i18n: { label: 'Мультиязычность', price: 350, days: 3 },
-    crm: { label: 'Интеграция с CRM', price: 400, days: 2 },
-    payments: { label: 'Платежи ЕРИП / bePaid / WebPay', price: 250, days: 2 },
-    belgie: { label: 'Регистрация в БелГИЭ и локальный хостинг', price: 150, days: 1 },
+    design: { label: 'Дизайн-концепт с нуля', price: 500, days: 3, gain: 'Выше чек' },
+    i18n: { label: 'Мультиязычность', price: 350, days: 3, gain: 'Второй рынок' },
+    crm: { label: 'Интеграция с CRM', price: 400, days: 2, gain: 'Заявки не теряются' },
+    payments: { label: 'Платежи ЕРИП / bePaid / WebPay', price: 250, days: 2, gain: 'Оплата на сайте' },
+    belgie: { label: 'Регистрация в БелГИЭ и локальный хостинг', price: 150, days: 1, gain: 'Можно рекламировать' },
 };
 
 const RETAINERS = {
-    none: { label: 'Без ежемесячного сопровождения', price: 0, adsBudget: false },
-    support: { label: 'Техническая поддержка', price: 250, adsBudget: false },
-    ads: { label: 'Контекстная реклама', price: 450, adsBudget: true },
-    seo: { label: 'SEO + контент', price: 750, adsBudget: false },
-    complex: { label: 'Комплексный маркетинг', price: 1200, adsBudget: true },
+    support: { label: 'Техническая поддержка', price: 250, adsBudget: false, gain: 'Сайт не падает' },
+    ads: { label: 'Контекстная реклама', price: 450, adsBudget: true, gain: 'Лиды по кнопке' },
+    seo: { label: 'SEO + контент', price: 750, adsBudget: false, gain: 'Заявки без клика' },
+    complex: { label: 'Комплексный маркетинг', price: 1200, adsBudget: true, gain: 'Один контур заявок' },
 };
+
+const STANDALONE_RETAINERS = ['support', 'ads', 'seo'];
 
 function formatByn(value) {
     return `${new Intl.NumberFormat('ru-RU').format(value)} BYN`;
@@ -92,18 +99,15 @@ function getExtraVolume(pkg, volume) {
 }
 
 function getSelectedAddons(root, pkg) {
-    const selected = root.querySelector('[name="calc-addons"]')?.value;
-
-    if (!selected || !(selected in ADDONS) || pkg.includedAddons.includes(selected)) {
-        return [];
-    }
-
-    return [selected];
+    return [...root.querySelectorAll('[name="calc-addon"]:checked')]
+        .map((input) => input.value)
+        .filter((id) => id in ADDONS && !pkg.includedAddons.includes(id));
 }
 
-function getSelectedRetainer(root) {
-    const selected = root.querySelector('[name="calc-retainer"]');
-    return selected?.value in RETAINERS ? selected.value : 'none';
+function getSelectedRetainerIds(root) {
+    return [...root.querySelectorAll('[name="calc-retainer"]:checked')]
+        .map((input) => input.value)
+        .filter((id) => id in RETAINERS);
 }
 
 function calcDays(pkg, extraVolume, addonIds) {
@@ -126,10 +130,10 @@ function calculate(root) {
     const volume = getVolumeValue(root, pkg);
     const extraVolume = getExtraVolume(pkg, volume);
     const addonIds = getSelectedAddons(root, pkg);
-    const retainerId = getSelectedRetainer(root);
-    const retainer = RETAINERS[retainerId];
+    const retainerIds = getSelectedRetainerIds(root);
     const extraVolumePrice = extraVolume * pkg.volume.extraPrice;
     const addonsPrice = addonIds.reduce((sum, id) => sum + ADDONS[id].price, 0);
+    const monthly = retainerIds.reduce((sum, id) => sum + RETAINERS[id].price, 0);
     const oneTime = pkg.price + extraVolumePrice + addonsPrice;
     const days = calcDays(pkg, extraVolume, addonIds);
 
@@ -141,12 +145,34 @@ function calculate(root) {
         extraVolumePrice,
         addonIds,
         addonsPrice,
-        retainerId,
-        retainer,
+        retainerIds,
+        adsBudget: retainerIds.some((id) => RETAINERS[id].adsBudget),
         oneTime,
-        monthly: retainer.price,
+        monthly,
         days,
     };
+}
+
+function buildGains(result) {
+    const gains = [result.pkg.gain];
+
+    if (result.extraVolume > 0 && result.pkg.volume.extraGain) {
+        gains.push(result.pkg.volume.extraGain);
+    }
+
+    result.addonIds.forEach((id) => {
+        if (ADDONS[id].gain) {
+            gains.push(ADDONS[id].gain);
+        }
+    });
+
+    result.retainerIds.forEach((id) => {
+        if (RETAINERS[id].gain) {
+            gains.push(RETAINERS[id].gain);
+        }
+    });
+
+    return [...new Set(gains.filter(Boolean))];
 }
 
 function buildBreakdown(result) {
@@ -175,12 +201,12 @@ function buildBreakdown(result) {
         });
     });
 
-    if (result.monthly > 0) {
+    result.retainerIds.forEach((id) => {
         lines.push({
-            label: `${result.retainer.label} / мес.`,
-            value: formatByn(result.monthly),
+            label: `${RETAINERS[id].label} / мес.`,
+            value: formatByn(RETAINERS[id].price),
         });
-    }
+    });
 
     return lines;
 }
@@ -198,11 +224,11 @@ function buildEstimateText(result) {
         lines.push(`Допы: ${result.addonIds.map((id) => ADDONS[id].label).join(', ')}`);
     }
 
-    if (result.retainerId !== 'none') {
-        lines.push(`Сопровождение: ${result.retainer.label}`);
+    if (result.retainerIds.length > 0) {
+        lines.push(`Сопровождение: ${result.retainerIds.map((id) => RETAINERS[id].label).join(', ')}`);
     }
 
-    if (result.retainer.adsBudget) {
+    if (result.adsBudget) {
         lines.push('Рекламный бюджет не входит в сумму.');
     }
 
@@ -244,35 +270,58 @@ function renderVolume(root, pkg) {
     }
 }
 
-function renderAddons(root, pkg) {
-    const select = root.querySelector('[name="calc-addons"]');
+function renderAddons(root, packageId, pkg) {
+    const previousId = root.dataset.calcPackage;
     const hint = root.querySelector('[data-calc-addons-hint]');
 
-    if (!select) {
-        return;
-    }
-
     Object.keys(ADDONS).forEach((id) => {
-        const option = select.querySelector(`option[value="${id}"]`);
+        const input = root.querySelector(`[name="calc-addon"][value="${id}"]`);
+        const badge = root.querySelector(`[data-calc-addon-badge="${id}"]`);
+        const included = pkg.includedAddons.includes(id);
 
-        if (!option) {
+        if (!input) {
             return;
         }
 
-        const included = pkg.includedAddons.includes(id);
-        option.hidden = included;
-        option.disabled = included;
+        if (included) {
+            input.checked = true;
+            input.disabled = true;
+        } else {
+            input.disabled = false;
+            if (previousId && PACKAGES[previousId]?.includedAddons.includes(id)) {
+                input.checked = false;
+            }
+        }
+
+        if (badge) {
+            badge.classList.toggle('hidden', !included);
+        }
     });
 
-    if (pkg.includedAddons.includes(select.value)) {
-        select.value = '';
-    }
+    root.dataset.calcPackage = packageId;
 
     if (hint) {
         hint.textContent = pkg.includedAddons.length
-            ? `Уже в тарифе: ${pkg.includedAddons.map((id) => ADDONS[id].label).join(', ')}.`
-            : '';
+            ? `Можно выбрать несколько. Уже в тарифе: ${pkg.includedAddons.map((id) => ADDONS[id].label).join(', ')}.`
+            : 'Можно выбрать несколько опций.';
     }
+
+    renderAddonLabel(root);
+}
+
+function renderAddonLabel(root) {
+    const label = root.querySelector('[data-calc-addons-label]');
+
+    if (!label) {
+        return;
+    }
+
+    const pkg = PACKAGES[getSelectedPackage(root)];
+    const ids = getSelectedAddons(root, pkg);
+
+    label.textContent = ids.length > 0
+        ? ids.map((id) => ADDONS[id].label).join(', ')
+        : 'Без дополнительных опций';
 }
 
 function renderSummary(root, result) {
@@ -280,6 +329,7 @@ function renderSummary(root, result) {
     const monthly = root.querySelector('[data-calc-monthly]');
     const days = root.querySelector('[data-calc-days]');
     const adsNote = root.querySelector('[data-calc-ads-note]');
+    const gains = root.querySelector('[data-calc-gains]');
     const list = root.querySelector('[data-calc-breakdown]');
 
     if (oneTime) {
@@ -295,7 +345,18 @@ function renderSummary(root, result) {
     }
 
     if (adsNote) {
-        adsNote.classList.toggle('hidden', !result.retainer.adsBudget);
+        adsNote.classList.toggle('hidden', !result.adsBudget);
+    }
+
+    if (gains) {
+        gains.replaceChildren(
+            ...buildGains(result).map((text) => {
+                const item = document.createElement('li');
+                item.className = 'rounded-full border border-slate-200 bg-white px-3 py-1 text-sm font-semibold text-slate-800';
+                item.textContent = text;
+                return item;
+            }),
+        );
     }
 
     if (list) {
@@ -331,11 +392,81 @@ function applyEstimateToContact(result) {
     }
 }
 
+function syncRetainerExclusivity(root, changed) {
+    if (!changed.checked) {
+        return;
+    }
+
+    if (changed.value === 'complex') {
+        STANDALONE_RETAINERS.forEach((id) => {
+            const input = root.querySelector(`[name="calc-retainer"][value="${id}"]`);
+            if (input) {
+                input.checked = false;
+            }
+        });
+        return;
+    }
+
+    const complex = root.querySelector('[name="calc-retainer"][value="complex"]');
+    if (complex) {
+        complex.checked = false;
+    }
+}
+
+function renderRetainerLabel(root) {
+    const label = root.querySelector('[data-calc-retainers-label]');
+
+    if (!label) {
+        return;
+    }
+
+    const ids = getSelectedRetainerIds(root);
+
+    if (ids.length === 0) {
+        label.textContent = 'Без сопровождения';
+        return;
+    }
+
+    label.textContent = ids.map((id) => RETAINERS[id].label).join(', ');
+}
+
+function initCalcDropdown(root, name) {
+    const wrap = root.querySelector(`[data-calc-${name}]`);
+    const toggle = root.querySelector(`[data-calc-${name}-toggle]`);
+    const panel = root.querySelector(`[data-calc-${name}-panel]`);
+
+    if (!wrap || !toggle || !panel) {
+        return;
+    }
+
+    const setOpen = (open) => {
+        panel.classList.toggle('hidden', !open);
+        toggle.setAttribute('aria-expanded', String(open));
+    };
+
+    toggle.addEventListener('click', () => {
+        setOpen(panel.classList.contains('hidden'));
+    });
+
+    document.addEventListener('click', (event) => {
+        if (!wrap.contains(event.target)) {
+            setOpen(false);
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            setOpen(false);
+        }
+    });
+}
+
 function update(root) {
     const packageId = getSelectedPackage(root);
     const pkg = PACKAGES[packageId];
     renderVolume(root, pkg);
-    renderAddons(root, pkg);
+    renderAddons(root, packageId, pkg);
+    renderRetainerLabel(root);
     renderSummary(root, calculate(root));
 }
 
@@ -346,7 +477,16 @@ export function initCalculator() {
         return;
     }
 
-    root.addEventListener('change', () => update(root));
+    initCalcDropdown(root, 'addons');
+    initCalcDropdown(root, 'retainers');
+
+    root.addEventListener('change', (event) => {
+        if (event.target.matches('[name="calc-retainer"]')) {
+            syncRetainerExclusivity(root, event.target);
+        }
+
+        update(root);
+    });
     root.addEventListener('input', (event) => {
         if (event.target.matches('[data-calc-volume]')) {
             update(root);

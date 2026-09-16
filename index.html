@@ -290,28 +290,128 @@
 
                             <fieldset>
                                 <legend class="mb-4 text-xl font-bold text-slate-900">3. Дополнительно</legend>
-                                <label for="calc-addons" class="mb-1 block text-sm font-medium">Дополнительные опции</label>
-                                <select id="calc-addons" name="calc-addons" class="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:border-brand focus:ring-2 focus:ring-brand/20">
-                                    <option value="" selected>Без дополнительных опций</option>
-                                    <option value="design">Дизайн-концепт с нуля — +500 BYN</option>
-                                    <option value="i18n">Мультиязычность — +350 BYN</option>
-                                    <option value="crm">Интеграция с CRM — +400 BYN</option>
-                                    <option value="payments">Платежи ЕРИП / bePaid / WebPay — +250 BYN</option>
-                                    <option value="belgie">Регистрация в БелГИЭ и локальный хостинг — +150 BYN</option>
-                                </select>
-                                <p data-calc-addons-hint class="mt-2 text-sm text-slate-500"></p>
+                                <p class="mb-1 text-sm font-medium">Дополнительные опции</p>
+                                <div data-calc-addons class="relative">
+                                    <button
+                                        data-calc-addons-toggle
+                                        type="button"
+                                        class="flex w-full items-center justify-between gap-3 rounded-lg border border-slate-300 bg-white px-3 py-2 text-left outline-none focus:border-brand focus:ring-2 focus:ring-brand/20"
+                                        aria-expanded="false"
+                                        aria-controls="calc-addons-panel"
+                                    >
+                                        <span data-calc-addons-label>Без дополнительных опций</span>
+                                        <span aria-hidden="true">▼</span>
+                                    </button>
+                                    <div
+                                        id="calc-addons-panel"
+                                        data-calc-addons-panel
+                                        class="absolute z-20 mt-1 hidden w-full rounded-lg border border-slate-200 bg-white p-2 shadow-lg"
+                                    >
+                                        <label class="flex cursor-pointer items-start gap-3 rounded-md px-2 py-2 hover:bg-slate-50 has-[:disabled]:cursor-default has-[:disabled]:bg-slate-50">
+                                            <input class="mt-1 accent-brand" type="checkbox" name="calc-addon" value="design">
+                                            <span>
+                                                <span class="flex flex-wrap items-center gap-2 font-medium text-slate-900">
+                                                    Дизайн-концепт с нуля
+                                                    <span data-calc-addon-badge="design" class="hidden rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-700">В тарифе</span>
+                                                </span>
+                                                <span class="text-sm text-slate-500">+500 BYN</span>
+                                            </span>
+                                        </label>
+                                        <label class="flex cursor-pointer items-start gap-3 rounded-md px-2 py-2 hover:bg-slate-50 has-[:disabled]:cursor-default has-[:disabled]:bg-slate-50">
+                                            <input class="mt-1 accent-brand" type="checkbox" name="calc-addon" value="i18n">
+                                            <span>
+                                                <span class="flex flex-wrap items-center gap-2 font-medium text-slate-900">
+                                                    Мультиязычность
+                                                    <span data-calc-addon-badge="i18n" class="hidden rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-700">В тарифе</span>
+                                                </span>
+                                                <span class="text-sm text-slate-500">+350 BYN</span>
+                                            </span>
+                                        </label>
+                                        <label class="flex cursor-pointer items-start gap-3 rounded-md px-2 py-2 hover:bg-slate-50 has-[:disabled]:cursor-default has-[:disabled]:bg-slate-50">
+                                            <input class="mt-1 accent-brand" type="checkbox" name="calc-addon" value="crm">
+                                            <span>
+                                                <span class="flex flex-wrap items-center gap-2 font-medium text-slate-900">
+                                                    Интеграция с CRM
+                                                    <span data-calc-addon-badge="crm" class="hidden rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-700">В тарифе</span>
+                                                </span>
+                                                <span class="text-sm text-slate-500">+400 BYN</span>
+                                            </span>
+                                        </label>
+                                        <label class="flex cursor-pointer items-start gap-3 rounded-md px-2 py-2 hover:bg-slate-50 has-[:disabled]:cursor-default has-[:disabled]:bg-slate-50">
+                                            <input class="mt-1 accent-brand" type="checkbox" name="calc-addon" value="payments">
+                                            <span>
+                                                <span class="flex flex-wrap items-center gap-2 font-medium text-slate-900">
+                                                    Платежи ЕРИП / bePaid / WebPay
+                                                    <span data-calc-addon-badge="payments" class="hidden rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-700">В тарифе</span>
+                                                </span>
+                                                <span class="text-sm text-slate-500">+250 BYN</span>
+                                            </span>
+                                        </label>
+                                        <label class="flex cursor-pointer items-start gap-3 rounded-md px-2 py-2 hover:bg-slate-50 has-[:disabled]:cursor-default has-[:disabled]:bg-slate-50">
+                                            <input class="mt-1 accent-brand" type="checkbox" name="calc-addon" value="belgie">
+                                            <span>
+                                                <span class="flex flex-wrap items-center gap-2 font-medium text-slate-900">
+                                                    Регистрация в БелГИЭ и локальный хостинг
+                                                    <span data-calc-addon-badge="belgie" class="hidden rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-700">В тарифе</span>
+                                                </span>
+                                                <span class="text-sm text-slate-500">+150 BYN</span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <p data-calc-addons-hint class="mt-2 text-sm text-slate-500">Можно выбрать несколько опций.</p>
                             </fieldset>
 
                             <fieldset>
                                 <legend class="mb-4 text-xl font-bold text-slate-900">4. Сопровождение</legend>
-                                <label for="calc-retainer" class="mb-1 block text-sm font-medium">Ежемесячный пакет</label>
-                                <select id="calc-retainer" name="calc-retainer" class="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:border-brand focus:ring-2 focus:ring-brand/20">
-                                    <option value="none" selected>Без сопровождения — 0 BYN/мес.</option>
-                                    <option value="support">Техническая поддержка — 250 BYN/мес.</option>
-                                    <option value="ads">Контекстная реклама — 450 BYN/мес. + бюджет</option>
-                                    <option value="seo">SEO + контент — 750 BYN/мес.</option>
-                                    <option value="complex">Комплексный маркетинг — 1 200 BYN/мес. + бюджет</option>
-                                </select>
+                                <p class="mb-1 text-sm font-medium">Ежемесячные услуги</p>
+                                <div data-calc-retainers class="relative">
+                                    <button
+                                        data-calc-retainers-toggle
+                                        type="button"
+                                        class="flex w-full items-center justify-between gap-3 rounded-lg border border-slate-300 bg-white px-3 py-2 text-left outline-none focus:border-brand focus:ring-2 focus:ring-brand/20"
+                                        aria-expanded="false"
+                                        aria-controls="calc-retainers-panel"
+                                    >
+                                        <span data-calc-retainers-label>Без сопровождения</span>
+                                        <span aria-hidden="true">▼</span>
+                                    </button>
+                                    <div
+                                        id="calc-retainers-panel"
+                                        data-calc-retainers-panel
+                                        class="absolute z-20 mt-1 hidden w-full rounded-lg border border-slate-200 bg-white p-2 shadow-lg"
+                                    >
+                                        <label class="flex cursor-pointer items-start gap-3 rounded-md px-2 py-2 hover:bg-slate-50">
+                                            <input class="mt-1 accent-brand" type="checkbox" name="calc-retainer" value="support">
+                                            <span>
+                                                <span class="block font-medium text-slate-900">Техническая поддержка</span>
+                                                <span class="text-sm text-slate-500">250 BYN/мес.</span>
+                                            </span>
+                                        </label>
+                                        <label class="flex cursor-pointer items-start gap-3 rounded-md px-2 py-2 hover:bg-slate-50">
+                                            <input class="mt-1 accent-brand" type="checkbox" name="calc-retainer" value="ads">
+                                            <span>
+                                                <span class="block font-medium text-slate-900">Контекстная реклама</span>
+                                                <span class="text-sm text-slate-500">450 BYN/мес. + бюджет</span>
+                                            </span>
+                                        </label>
+                                        <label class="flex cursor-pointer items-start gap-3 rounded-md px-2 py-2 hover:bg-slate-50">
+                                            <input class="mt-1 accent-brand" type="checkbox" name="calc-retainer" value="seo">
+                                            <span>
+                                                <span class="block font-medium text-slate-900">SEO + контент</span>
+                                                <span class="text-sm text-slate-500">750 BYN/мес.</span>
+                                            </span>
+                                        </label>
+                                        <label class="flex cursor-pointer items-start gap-3 rounded-md px-2 py-2 hover:bg-slate-50">
+                                            <input class="mt-1 accent-brand" type="checkbox" name="calc-retainer" value="complex">
+                                            <span>
+                                                <span class="block font-medium text-slate-900">Комплексный маркетинг</span>
+                                                <span class="text-sm text-slate-500">1 200 BYN/мес. + бюджет · уже включает поддержку, рекламу и SEO</span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <p class="mt-2 text-sm text-slate-500">Можно выбрать несколько пунктов. Комплекс не складывается с остальными — он их заменяет.</p>
                             </fieldset>
                         </form>
 
@@ -324,6 +424,10 @@
                                 <p data-calc-monthly class="mb-4 text-2xl font-bold text-brand">0 BYN</p>
                                 <p class="text-sm text-slate-500">Срок</p>
                                 <p data-calc-days class="mb-4 text-lg font-semibold text-slate-900">7–10 дней</p>
+                                <p class="text-sm text-slate-500">Что получит бизнес</p>
+                                <ul data-calc-gains class="mb-4 flex flex-wrap gap-2">
+                                    <li class="rounded-full border border-slate-200 bg-white px-3 py-1 text-sm font-semibold text-slate-800">Заявки с рекламы</li>
+                                </ul>
                                 <p data-calc-ads-note class="mb-4 hidden text-sm text-amber-700">Рекламный бюджет в сумму не входит.</p>
                                 <ul data-calc-breakdown class="mb-6 space-y-2 border-t border-slate-200 pt-4"></ul>
                                 <p class="mb-5 text-xs text-slate-500">Это ориентир. Фиксируем цену в договоре после брифа — без скрытых доплат.</p>
